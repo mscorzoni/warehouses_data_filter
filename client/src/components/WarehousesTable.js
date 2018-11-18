@@ -7,19 +7,24 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
 const WarehousesTable = ({array}) => {
+  const headerStyle = {
+    fontSize: '0.9rem',
+    fontWeight: 'bold',
+  }
+
   return (
     <div>
       <Table>
         <TableHead>
-          <TableRow>
-            <TableCell>id</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Location</TableCell>
-            <TableCell>Latitude</TableCell>
-            <TableCell>Longitude</TableCell>
-            <TableCell>Rating</TableCell>
-            <TableCell>Temperature</TableCell>
-            <TableCell>Capacity (square feet)</TableCell>
+          <TableRow style={{ backgroundColor: '#E8E8E8' }}>
+            <TableCell style={headerStyle}>id</TableCell>
+            <TableCell style={headerStyle}>Name</TableCell>
+            <TableCell style={headerStyle}>Location</TableCell>
+            <TableCell style={headerStyle}>Latitude</TableCell>
+            <TableCell style={headerStyle}>Longitude</TableCell>
+            <TableCell style={headerStyle}>Rating</TableCell>
+            <TableCell style={headerStyle}>Temperature</TableCell>
+            <TableCell style={headerStyle}>Capacity (square feet)</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

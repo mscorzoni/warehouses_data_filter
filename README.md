@@ -1,24 +1,33 @@
-# README
+# Warehouhes data filter
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation
 
-Things you may want to cover:
+---
+Go to client folder and install node modules
+---
 
-* Ruby version
+```bash
+  $ yarn install
+```
+---
+Go back to root and run:
+---
 
-* System dependencies
+```bash
+  $ rails db:setup
+```
 
-* Configuration
+```bash
+  $ foreman start -f Procfile.dev
+```
 
-* Database creation
+### PORTS
 
-* Database initialization
+* client: 3005
+* server: 3004
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+### Version
 
-* Deployment instructions
-
-* ...
+* ruby 2.4.4
+* Rails 5.2.1
