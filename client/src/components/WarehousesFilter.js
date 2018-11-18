@@ -122,7 +122,21 @@ class WarehousesFilter extends Component {
               Equal or greater than 40,000
           </button>
           </div>
-          
+
+          <div className="label_items">
+            <h3>Rating</h3>
+            <button
+              className={toggleColor.includes(2) ? 'active' : ''}
+              onClick={() => this.filterHandler(2)}>
+              Equal or greater than 2
+          </button>
+            <button
+              className={toggleColor.includes(4) ? 'active' : ''}
+              onClick={() => this.filterHandler(4)}>
+              Equal or greater than 4
+          </button>
+          </div>
+
         </div>
 
         <WarehousesTable array={this.state.filters}/>
