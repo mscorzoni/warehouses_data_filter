@@ -2,7 +2,7 @@
 
 ## Installation
 
-Go to client folder and install node module
+Go to client folder and install node modules:
 
 ```bash
   $ yarn install
