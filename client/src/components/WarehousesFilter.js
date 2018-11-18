@@ -104,6 +104,11 @@ class WarehousesFilter extends Component {
               onClick={() => this.filterHandler('chilled')}>
               Chilled
             </button>
+             <button 
+              className={toggleColor.includes('frozen') ? 'active' : ''}
+              onClick={() => this.filterHandler('frozen')}>
+              Frozen
+            </button>
           </div>
         </div>
 
