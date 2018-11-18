@@ -86,21 +86,27 @@ class WarehousesFilter extends Component {
     return (
       <div>
         <h1>Warehouses Data Filter</h1>
-        
-        <div className="label_items">
-          <h3 style={{ color: "#f5f5f5" }}>Display All</h3>
-          <button
-            className={this.state.toggleAll ? "active" : ''}
-            onClick={() => this.showAll()}>Display All</button>
+        <div className="label-wrapper">
+          <div className="label_items">
+            <h3>Count</h3>
+            <span><strong>{this.state.filters.length}</strong></span>
+          </div>
+          <div className="label_items">
+            <h3 style={{ color: "#f5f5f5" }}>Display All</h3>
+            <button
+              className={this.state.toggleAll ? "active" : ''}
+              onClick={() => this.showAll()}>Display All</button>
+          </div>
+          <div className="label_items">
+            <h3>Temperature</h3>
+            <button
+              className={toggleColor.includes('chilled') ? 'active' : ''}
+              onClick={() => this.filterHandler('chilled')}>
+              Chilled
+            </button>
+          </div>
         </div>
-        <div className="label_items">
-          <h3>Temperature</h3>
-          <button
-            className={toggleColor.includes('chilled') ? 'active' : ''}
-            onClick={() => this.filterHandler('chilled')}>
-            Chilled
-          </button>
-        </div>
+
         <WarehousesTable array={this.state.filters}/>
 
       </div>
