@@ -12,7 +12,7 @@ CSV.foreach(filepath, csv_options) do |row|
                     longitude: row['lon'].to_f,
                     rating: row['rating'].to_f,
                     temperature: row['temperature'],
-                    capacity_sq_ft: row['capacity_sq_feet'].to_i
+                    capacity_sq_ft: row['capacity_sq_ft'].to_i
                     )
 end
 
