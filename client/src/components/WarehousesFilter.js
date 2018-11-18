@@ -9,6 +9,7 @@ class WarehousesFilter extends Component {
     initialList: [],
     filters:[],
     toggleColor: [],
+    toggleAll: true
   }
 
   componentDidMount(){
@@ -19,6 +20,14 @@ class WarehousesFilter extends Component {
           filters: response.data
         })
       })
+  }
+
+  showAll = () => {
+    this.setState({
+      toggleAll: true,
+      toggleColor: [],
+      filters: this.state.initialList
+    })
   }
 
   filterHandler = (param) => {
@@ -77,7 +86,13 @@ class WarehousesFilter extends Component {
     return (
       <div>
         <h1>Warehouses Data Filter</h1>
-
+        
+        <div className="label_items">
+          <h3 style={{ color: "#f5f5f5" }}>Display All</h3>
+          <button
+            className={this.state.toggleAll ? "active" : ''}
+            onClick={() => this.showAll()}>Display All</button>
+        </div>
         <div className="label_items">
           <h3>Temperature</h3>
           <button
