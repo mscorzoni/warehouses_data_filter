@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import WarehousesTable from './WarehousesTable';
 
 class WarehousesFilter extends Component {
   render() {
     return (
       <div>
-        Warehouses 3
+        <WarehousesTable />
       </div>
     );
   }
