@@ -1,17 +1,14 @@
-# Warehouhes data filter
+# Warehouses data filter
 
 ## Installation
 
----
-Go to client folder and install node modules
----
+Go to client folder and install node module
 
 ```bash
   $ yarn install
 ```
----
+
 Go back to root and run:
----
 
 ```bash
   $ rails db:setup
