@@ -8,6 +8,8 @@ class WarehousesFilter extends Component {
   state = {
     initialList: [],
     filters:[],
+    filter_20: [],
+    filter_50:[],
     toggleColor: [],
     toggleAll: true
   }
@@ -16,8 +18,10 @@ class WarehousesFilter extends Component {
     axios.get('http://localhost:3004/api/v1/warehouses')
       .then(response => {
         this.setState({
-          initialList: response.data,
-          filters: response.data
+          initialList: response.data.warehouses,
+          filters: response.data.warehouses,
+          filter_50: response.data.warehouses_50,
+          filter_20: response.data.warehouses_20,
         })
       })
   }
@@ -79,6 +83,46 @@ class WarehousesFilter extends Component {
     })
   }
 
+  showDistance = (distance) => {
+    const arr1 = this.state.filters;
+    const arr2 = this.state.filter_50;
+    const arr3 = this.state.filter_20;
+    let newlist = [];
+    let newToggleColor = this.state.toggleColor;
+    if (!newToggleColor.includes(distance)) {
+      newToggleColor.push(distance);
+      if (distance === '50km') {
+        arr1.forEach((e1) => arr2.forEach((e2) => {
+          if (e1.name === e2.name) {
+            newlist.push(e1)
+          }
+        }
+        ));
+      }
+      if (distance === '20km') {
+        arr1.forEach((e1) => arr3.forEach((e2) => {
+          if (e1.name === e2.name) {
+            newlist.push(e1)
+          }
+        }));
+      }
+      this.setState({
+        filters: newlist
+      })
+    } else {
+      let index = newToggleColor.indexOf(distance);
+      if (index !== -1) {
+        newToggleColor.splice(index, 1);
+        this.filterHandler('default');
+      }
+      else { newToggleColor = [] }
+    }
+    this.setState({
+      toggleColor: newToggleColor,
+      toggleAll: newToggleColor.length === 0
+    })
+  }
+
   render() {
     console.log(this.state.initialList);
     console.log(this.state.toggleColor);
@@ -134,6 +178,20 @@ class WarehousesFilter extends Component {
               className={toggleColor.includes(4) ? 'active' : ''}
               onClick={() => this.filterHandler(4)}>
               Equal or greater than 4
+          </button>
+          </div>
+
+          <div className="label_items">
+            <h3>Within Radius from lon 0.0 lat 0.0</h3>
+            <button
+              className={toggleColor.includes('50km') ? 'active' : ''}
+              onClick={() => this.showDistance('50km')}>
+              50km
+          </button>
+            <button
+              className={toggleColor.includes('20km') ? 'active' : ''}
+              onClick={() => this.showDistance('20km')}>
+              20km
           </button>
           </div>
 
